@@ -14,11 +14,8 @@ int clear_bit(unsigned long int *n, unsigned int index)
     if (index >= sizeof(unsigned long int) * 8)
         return -1;
 
-    // Define a mask to clear the bit at the given index
-    unsigned long int mask = ~(1ul << index);
-
     // Clear the bit to 0 using bitwise AND and return 1 for success
-    *n &= mask;
+    *n &= ~(1ul << index);
 
     return 1;
 }
