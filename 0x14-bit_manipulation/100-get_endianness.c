@@ -1,17 +1,26 @@
 #include "main.h"
 
+/**
+ * clear_bit -  Sets the value of a bit to 0 at a given index
  *
- * Return: 0 si big endian, 1 si little endian
+ * @n: long int
+ *
+ * @index: unsigned int
+ *
+ * Return: 1 if works -1 on failure
  */
-int get_endianness(void)
-{
-    unsigned int x = 1;
-    char *c = (char *) &x;
 
-    if (*c)
-        return 1;
-    else
-        return 0;
+int clear_bit(unsigned long int *n, unsigned int index)
+{
+	unsigned long int mask = 1 << index;
+
+		if (index < sizeof(n) * 8)
+		{
+			*n = (*n & ~mask);
+			return (1);
+		}
+
+		return (-1);
 }
 
 
