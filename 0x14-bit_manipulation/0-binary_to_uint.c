@@ -4,44 +4,44 @@
 
 /**
   * binary_to_uint - Converts a binary number to an unsigned int
-  * @binary: The binary string to convert
+  * @b: The binary string to converts
   *
   * Return: The positive number converted from a binary
   */
-unsigned int binary_to_uint(const char *binary)
+unsigned int binary_to_uint(const char *b)
 {
-	unsigned int length = 0, bit_count = 0, decimal = 0;
+	unsigned int len = 0, count = 0, sum = 0;
 
-	if (binary == NULL)
+	if (b == NULL)
 		return (0);
 
-	length = string_length(binary);
-	for (int i = length - 1; i >= 0; i--)
+	len = _strlen(b);
+	while (len--)
 	{
-		if (binary[i] != '0' && binary[i] != '1')
+		if (b[len] != 48 && b[len] != 49)
 			return (0);
 
-		if (binary[i] == '1')
-			decimal += 1 << bit_count;
+		if (b[len] == 49)
+			sum += 1 << count;
 
-		bit_count++;
+		count++;
 	}
 
-	return (decimal);
+	return (sum);
 }
 
 /**
-  * string_length - Returns the length of a string
-  * @str: String to count
+  * _strlen - Returns the length of a string
+  * @s: String to count
   *
   * Return: String length
   */
-int string_length(const char *str)
+int _strlen(const char *s)
 {
-	int length = 0;
+	int c = 0;
 
-	for (; str[length] != '\0'; length++)
-		continue;
+	while (s[c])
+		c++;
 
-	return (length);
+	return (c);
 }
