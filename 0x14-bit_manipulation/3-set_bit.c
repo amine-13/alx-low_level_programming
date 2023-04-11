@@ -15,7 +15,11 @@ int set_bit(unsigned long int *n, unsigned int index)
     if (index >= sizeof(unsigned long int) * 8)
         return -1;
 
+    // Define a mask to set the bit at the given index
+    unsigned long int mask = 1 << index;
+
     // Set the bit to 1 using bitwise OR and return 1 for success
-    *n |= (1ul << index);
+    *n |= mask;
+
     return 1;
 }
